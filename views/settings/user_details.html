@@ -1,0 +1,71 @@
+{{ print_header }}
+<div class="details_content">
+	<div class="details_title no_print">
+		_(User details)
+		<a class="close_details" href="#"><img src="public/images/close.png"></a>
+	</div>
+	<div class="details_body">
+		<table class="show_details_table">
+			<tr>
+				<td rowspan="2">
+					<div class="user_photo_container">
+						<img class="user_photo" src="{{ user_photo }}" alt="Foto">
+					</div>
+				</td>
+				<td>_(Nickname)</td>
+				<td>{{ nickname }}</td>
+			</tr>
+			<tr>
+				<td>_(Complete name):</td>
+				<td>{{ user_name }}</td>
+			</tr>
+		</table>
+		<p>_(Permissions):</p>
+		<table class="show_details_table">
+			<tbody>
+				[[ user_modules ]]
+				<tr>
+					<td>_({{ module_0 }})</td>
+					<td>_({{ module_1 }})</td>
+					<td>_({{ module_2 }})</td>
+					<td>_({{ module_3 }})</td>
+				</tr>[[/ user_modules ]]
+			</tbody>
+		</table>
+		<p>_(Last sessions):</p>
+		<table class="show_details_table">
+			<thead>
+				<th>No.</th>
+				<th>_(Date)</th>
+				<th>_(Hour)</th>
+				<th>IP</th>
+				<th>_(Browser)</th>
+			</thead>
+			<tbody>
+				[[ sessions ]]
+				<tr>
+					<td class="right">{{ item }}</td>
+					<td>{{ session_date }}</td>
+					<td>{{ session_time }}</td>
+					<td>{{ ip_address }}</td>
+					<td>{{ browser_name }}, {{ platform }}</td>
+				</tr>[[/ sessions ]]
+			</tbody>
+		</table>
+	</div>
+	<div class="details_users">
+		<!-- created -->
+		_(Created by): {{ cr_user_name }}, _(timeon) {{ cr_time }}<br>
+		<!-- /created -->
+		<!-- edited -->
+		_(Last edition by): {{ ed_user_name }}, _(timeon) {{ ed_time }}
+		<!-- /edited -->
+	</div>
+	<div class="details_foot no_print">
+		<!-- no_self -->
+		<button class="delete_button red_button" data-url="{{ module }}/delete_user" data-next="{{ module }}/Users">_(Delete user)</button>
+		<!-- /no_self -->
+		<button class="blue_button link_button" data-href="{{ module }}/EditUser/{{ user_id }}/">_(Edit)</button>
+		<button type="button" class="blue_button print_button" data-print=".details_body">_(Print)</button>
+	</div>
+</div>
